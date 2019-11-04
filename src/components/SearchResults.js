@@ -1,4 +1,5 @@
 import React from 'react'
+import '../styleSheets/SearchResults.css'
 
 
 class SearchResults extends React.Component {
@@ -8,8 +9,8 @@ class SearchResults extends React.Component {
     }
     render() { 
         return ( 
-            <div>
-                <ol>
+            <div className='resultContainer'>
+                <ol className='resultsList'>
                     <li>Ordered</li>   
                     <li>List</li> 
                     <li>here</li> 
