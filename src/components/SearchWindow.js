@@ -5,7 +5,9 @@ import '../styleSheets/SearchWindow.css';
 class SearchWindow extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {  }
+        this.state = { 
+            results: Array(10).fill(null),
+         }
     }
     render() { 
         return ( 

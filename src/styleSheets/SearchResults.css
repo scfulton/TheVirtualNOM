@@ -6,7 +6,6 @@
     display:inline-block;
     border-color: black;
     padding-top: 2rem;
-
 }
 
 ol li {
@@ -20,6 +19,4 @@ ol li {
     margin-left: 20%;
     margin-right: 20%;
     margin-top: 1%;
-    /* width: 70%; */
-    /* height: 70%; */
   }
