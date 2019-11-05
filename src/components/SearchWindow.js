@@ -17,7 +17,7 @@ class SearchWindow extends React.Component {
                         <input></input>
                     </div>
                     <p className='slider' >{/*SLIDER PLACEMENT */}  </p>
-                    <button>Click me to search</button>
+                    <button>Click here to search</button>
                     <SearchResults></SearchResults>
                 </div>
             </div>
