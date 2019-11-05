@@ -1,21 +1,34 @@
 import React from "react";
-import Nouislider from "nouislider-react";
-import "nouislider/distribute/nouislider.css";
+import Slider, { createSliderWithTooltip } from "rc-slider";
+import "rc-slider/assets/index.css";
 
-class DistanceSlider extends React.Component {
+//const style = { width: 600, margin: 50 };
+class CustomizedSlider extends React.Component {
 	constructor(props) {
 		super(props);
-		this.state = {};
+		this.state = {
+			min: 1,
+			max: 30,
+			step: 10,
+			value: 50
+		};
 	}
+	onSliderChange = value => {
+		console.log(value);
+		this.setState({
+			value
+		});
+	};
+	onAfterChange = value => {
+		console.log(value); //eslint-disable-line
+	};
 	render() {
-		return <mySlider />;
+		return (
+			<div className="sliderContainer">
+				<Slider value={this.state.value} onChange={this.onSliderChange} onAfterChange={this.onAfterChange} />
+			</div>
+		);
 	}
 }
 
-const mySlider = () => (
-	<div>
-		<Nouislider range={{ min: 0, max: 30 }} start={[20, 80]} connect />
-	</div>
-);
-
-export default DistanceSlider;
+export default CustomizedSlider;
