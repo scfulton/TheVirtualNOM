@@ -1,5 +1,5 @@
 import React from "react";
-import Slider, { createSliderWithTooltip } from "rc-slider";
+import Slider from "rc-slider";
 import "rc-slider/assets/index.css";
 
 //const style = { width: 600, margin: 50 };
@@ -7,9 +7,9 @@ class CustomizedSlider extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			min: 0,
-			max: 30,
-			step: 5,
+			min: 1,
+			max: 50,
+			step: 1,
 			value: 5
 		};
 	}
@@ -25,14 +25,23 @@ class CustomizedSlider extends React.Component {
 	render() {
 		return (
 			<div className="sliderContainer">
+				{/* <div id="min">
+					<label>{this.state.min}</label>
+				</div> */}
+
 				<Slider
-					dots
 					value={this.state.value}
-					min={this.state.min}
+					marks={({ 1: this.state.min }, { 100: this.state.max })}
+					step={null}
+					// min={this.state.min}
 					step={this.state.step}
 					onChange={this.onSliderChange}
 					onAfterChange={this.onAfterChange}
 				/>
+
+				{/* <div id="max">
+					<label>{this.state.max}</label>
+				</div> */}
 			</div>
 		);
 	}

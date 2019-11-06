@@ -3,9 +3,21 @@
 	margin: 0 20%;
 }
 
-.sliderContainer > * {
-	margin-top: 2rem;
-	margin-bottom: 2rem;
+#min,
+#max,
+.sliderDiv {
+	box-sizing: border-box;
+	display: inline-block;
+	margin: 0 2rem;
+}
+#min,
+#max {
+	width: 20%;
+}
+
+.rc-slider {
+	margin: 0 2rem;
+	width: 100%;
 }
 
 .rc-slider-rail {
