@@ -7,10 +7,10 @@ class CustomizedSlider extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			min: 1,
+			min: 0,
 			max: 30,
-			step: 10,
-			value: 50
+			step: 5,
+			value: 5
 		};
 	}
 	onSliderChange = value => {
@@ -25,7 +25,13 @@ class CustomizedSlider extends React.Component {
 	render() {
 		return (
 			<div className="sliderContainer">
-				<Slider value={this.state.value} onChange={this.onSliderChange} onAfterChange={this.onAfterChange} />
+				<Slider
+					value={this.state.value}
+					min={this.state.min}
+					step={this.state.step}
+					onChange={this.onSliderChange}
+					onAfterChange={this.onAfterChange}
+				/>
 			</div>
 		);
 	}
