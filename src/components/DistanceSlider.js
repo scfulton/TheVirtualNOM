@@ -26,6 +26,7 @@ class CustomizedSlider extends React.Component {
 		return (
 			<div className="sliderContainer">
 				<Slider
+					dots
 					value={this.state.value}
 					min={this.state.min}
 					step={this.state.step}
