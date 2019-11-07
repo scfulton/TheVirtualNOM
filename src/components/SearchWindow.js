@@ -5,6 +5,7 @@ import Slider from "../components/DistanceSlider";
 import "../styleSheets/Slider.css";
 
 class SearchWindow extends React.Component {
+
 	constructor(props) {
 		super(props);
 		this.state = {};
