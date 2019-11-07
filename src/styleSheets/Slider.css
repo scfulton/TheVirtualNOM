@@ -3,9 +3,12 @@
 	margin: 0 20%;
 }
 
-.sliderContainer > * {
+.rc-slider.rc-slider-with-marks {
 	margin-top: 2rem;
 	margin-bottom: 2rem;
+	margin-left: auto;
+	margin-right: auto;
+	width: 100%;
 }
 
 .rc-slider-rail {
