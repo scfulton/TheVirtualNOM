@@ -31,10 +31,6 @@ class CustomizedSlider extends React.Component {
 	render() {
 		return (
 			<div className="sliderContainer">
-				{/* <div id="min">
-					<label>{this.state.min}</label>
-				</div> */}
-
 				<Slider
 					value={this.state.value}
 					min={this.state.min}
@@ -46,10 +42,6 @@ class CustomizedSlider extends React.Component {
 					onChange={this.onSliderChange}
 					onAfterChange={this.onAfterChange}
 				/>
-
-				{/* <div id="max">
-					<label>{this.state.max}</label>
-				</div> */}
 			</div>
 		);
 	}
