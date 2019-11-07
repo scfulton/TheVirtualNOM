@@ -2,7 +2,6 @@ import React from "react";
 import Slider from "rc-slider";
 import "rc-slider/assets/index.css";
 
-//const style = { width: 600, margin: 50 };
 const minMark = 1;
 const maxMark = 50;
 const marks = {
@@ -37,7 +36,6 @@ class CustomizedSlider extends React.Component {
 					max={this.state.max}
 					marks={marks}
 					step={null}
-					// min={this.state.min}
 					step={this.state.step}
 					onChange={this.onSliderChange}
 					onAfterChange={this.onAfterChange}
