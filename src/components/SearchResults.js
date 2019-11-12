@@ -1,10 +1,12 @@
 import React from "react";
 import RestaurantCard from "../components/RestaurantCard";
+
 import "../styleSheets/SearchResults.css";
 
 class SearchResults extends React.Component {
   constructor(props) {
     super(props);
+
     this.state = { apiResponse: "" };
   }
 
@@ -36,6 +38,7 @@ class SearchResults extends React.Component {
         </div>
     {/* <RestaurantCard>{JSON.stringify(this.state.apiResponse[0])}</RestaurantCard> */}
     <RestaurantCard>{(this.state.apiResponse.id)}</RestaurantCard>
+
 
       </div>
     );
