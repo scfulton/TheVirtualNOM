@@ -9,8 +9,8 @@ class SearchResults extends React.Component {
   }
 
   callAPI() {
-    // fetch("https://thevirtualnomapiproduction.herokuapp.com/search")
-      fetch("http://localhost:9000/search")
+    fetch("https://thevirtualnomapiproduction.herokuapp.com/search/")
+    //   fetch("http://localhost:9000/search")
       .then(res => res.json())
       .then(res => this.setState({ apiResponse: res }));
   }
@@ -25,13 +25,6 @@ class SearchResults extends React.Component {
       return <RestaurantCard>{item.name}</RestaurantCard>;
     });
 
-//     jObj = new JSONObject(contents.trim());
-// Iterator<String> keys = jObj.keys();
-// while(keys.hasNext()) {
-//     String key = keys.next();
-//     if (jObject.get(key) instanceof JSONObject) {
-//     }
-// }
   }
 
   render() {
@@ -43,14 +36,7 @@ class SearchResults extends React.Component {
         </div>
     {/* <RestaurantCard>{JSON.stringify(this.state.apiResponse[0])}</RestaurantCard> */}
     <RestaurantCard>{(this.state.apiResponse.id)}</RestaurantCard>
-        {/* <ol className='resultsList'>
-                    <li>Ordered</li>   
-                    <li>List</li> 
-                    <li>here</li> 
-                    <li>of</li> 
-                    <li>results</li> 
 
-                </ol> */}
       </div>
     );
   }
