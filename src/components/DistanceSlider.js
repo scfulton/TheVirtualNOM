@@ -10,6 +10,7 @@ const marks = {
   25: { label: `${max}` }
 };
 class CustomizedSlider extends React.Component {
+
   constructor(props) {
     super(props);
     this.state = {
@@ -22,9 +23,12 @@ class CustomizedSlider extends React.Component {
       value
     });
   };
-  onAfterChange = value => {
-    console.log(value); //eslint-disable-line
-  };
+
+	onAfterChange = value => {
+		this.props.handleSliderChange(value);
+		console.log(value); //eslint-disable-line
+	};
+
   render() {
     return (
       <div className="sliderContainer">
@@ -40,6 +44,8 @@ class CustomizedSlider extends React.Component {
       </div>
     );
   }
+
+
 }
 
 export default CustomizedSlider;

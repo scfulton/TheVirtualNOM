@@ -3,6 +3,9 @@ import RestaurantCard from "../components/RestaurantCard";
 
 import "../styleSheets/SearchResults.css";
 
+
+var json = [];
+
 class SearchResults extends React.Component {
   constructor(props) {
     super(props);
@@ -12,34 +15,36 @@ class SearchResults extends React.Component {
 
   callAPI() {
     fetch("https://thevirtualnomapiproduction.herokuapp.com/search/")
-    //   fetch("http://localhost:9000/search")
+    //fetch("http://localhost:9000/search")
       .then(res => res.json())
-      .then(res => this.setState({ apiResponse: res }));
+      .then(res => this.setState({ apiResponse: res }))
   }
   componentDidMount() {
     this.callAPI();
   }
 
-  renderCard(e) {
-      
-    const rList = this.state.apiResponse.map(item => {
-      console.log("rlist: " + JSON.stringify(rList));
-      return <RestaurantCard>{item.name}</RestaurantCard>;
-    });
-
-  }
 
   render() {
+    var resObj = this.state.apiResponse.slice();
+    console.log("asdf2",resObj)
+    for (var key in resObj) {
+        json.push(resObj[key]);
+    }
+    // console.log(json);
+
     return (
       <div className="resultContainer">
-        <div>
-          {/* <p>{JSON.stringify(this.state.apiResponse[0])}</p> */}
-          {console.log("[1] " + JSON.stringify(this.state.apiResponse[0]))}
-        </div>
-    {/* <RestaurantCard>{JSON.stringify(this.state.apiResponse[0])}</RestaurantCard> */}
-    <RestaurantCard>{(this.state.apiResponse.id)}</RestaurantCard>
-
-
+          <ul>
+            {json.map((item, i) => {
+              return (
+                <li key={i}>
+                  {/* <RestaurantCard>{item.name}</RestaurantCard> */}
+                  <RestaurantCard>{item}</RestaurantCard>
+                </li>
+              );
+            })}
+            {/* <RestaurantCard>{json}</RestaurantCard> */}
+          </ul>
       </div>
     );
   }

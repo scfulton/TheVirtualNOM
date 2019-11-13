@@ -4,15 +4,22 @@ import "../styleSheets/SearchWindow.css";
 import Slider from "../components/DistanceSlider";
 import "../styleSheets/Slider.css";
 
-
 class SearchWindow extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { address: "" };
+    this.state = {
+      address: "",
+      sliderValue: 5
+    };
   }
   handleChange = event => {
     this.setState({ address: event.target.value });
     console.log(this.state.address);
+  };
+
+  handleSliderChange = event => {
+	this.setState({ sliderValue: event });
+	// console.log("event : ", event)
   };
 
   alertFunction(e) {
@@ -32,7 +39,7 @@ class SearchWindow extends React.Component {
               onChange={this.handleChange}
             ></input>
           </div>
-          <Slider></Slider>
+          <Slider handleSliderChange = {this.handleSliderChange}></Slider>
           <button
             onClick={
               this.state.address
