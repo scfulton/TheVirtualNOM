@@ -1,6 +1,5 @@
 import React from "react";
 import RestaurantCard from "../components/RestaurantCard";
-import ListItem from "./listItem";
 
 import "../styleSheets/SearchResults.css";
 
@@ -22,74 +21,30 @@ class SearchResults extends React.Component {
   }
   componentDidMount() {
     this.callAPI();
-    // this.renderCard()
   }
 
-  // renderCard() {
-  //   const rList = this.state.apiResponse.map((item, index) => {
-  //     console.log("rlist: " + JSON.stringify(rList));
-  //     // return <RestaurantCard>{item.name}</RestaurantCard>;
-  //     return (<li key = {index}>
-  //       <p>{item.name}</p>
-  //     </li>
-  //     )
-  //   });
-  //   return <ul>{rList}</ul>
-
-  // }
-
-  // renderListNames(){
-  //   Object.values(this.state.apiResponse).map((type) =>{
-  //     console.log(type);
-  //     return (
-  //       <li>Name : {type}</li>
-  //     )
-  //   })
-  // }
-
-  looper() {
-    var json = [];
-    var resObj = this.state.apiResponse.slice();
-    console.log("asdf",resObj)
-    for (var key in resObj) {
-      if (resObj[key].name == "Dish Society") {
-        json.push(resObj[key]);
-        console.log(json)
-      }
-    }
-    console.log(json);
-  }
 
   render() {
     var resObj = this.state.apiResponse.slice();
-    console.log("asdf",resObj)
+    console.log("asdf2",resObj)
     for (var key in resObj) {
-      // if (resObj[key].name == "Dish Society") 
-      {
         json.push(resObj[key]);
-      }
     }
-    console.log(json);
+    // console.log(json);
 
     return (
       <div className="resultContainer">
-        <div>
           <ul>
             {json.map((item, i) => {
               return (
-                <li>
-                  <span>{item.name}</span>
+                <li key={i}>
+                  {/* <RestaurantCard>{item.name}</RestaurantCard> */}
+                  <RestaurantCard>{item}</RestaurantCard>
                 </li>
               );
             })}
+            {/* <RestaurantCard>{json}</RestaurantCard> */}
           </ul>
-          {/* <ListItem>{this.state.apiResponse}</ListItem> */}
-          {/* <ul>{this.renderCard}</ul> */}
-          {/* <p>{JSON.stringify(this.state.apiResponse[0])}</p> */}
-          {/* {console.log("[1] " + JSON.stringify(this.state.apiResponse[0]))} */}
-        </div>
-        {/* <RestaurantCard>{JSON.stringify(this.state.apiResponse[0])}</RestaurantCard> */}
-        {/* <RestaurantCard>{(this.state.apiResponse.id)}</RestaurantCard> */}
       </div>
     );
   }

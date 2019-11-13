@@ -26,6 +26,8 @@ class CustomizedSlider extends React.Component {
 		});
 	};
 	onAfterChange = value => {
+		this.props.handleSliderChange(value);
+		
 		console.log(value); //eslint-disable-line
 	};
 	render() {
@@ -41,6 +43,7 @@ class CustomizedSlider extends React.Component {
 					step={this.state.step}
 					onChange={this.onSliderChange}
 					onAfterChange={this.onAfterChange}
+					
 				/>
 			</div>
 		);
