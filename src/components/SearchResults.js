@@ -14,8 +14,8 @@ class SearchResults extends React.Component {
   }
 
   callAPI() {
-    // fetch("https://thevirtualnomapiproduction.herokuapp.com/search/")
-    fetch("http://localhost:9000/search")
+    fetch("https://thevirtualnomapiproduction.herokuapp.com/search/")
+    //fetch("http://localhost:9000/search")
       .then(res => res.json())
       .then(res => this.setState({ apiResponse: res }))
   }
