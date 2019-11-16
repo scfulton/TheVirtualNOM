@@ -9,7 +9,8 @@ class SearchWindow extends React.Component {
     super(props);
     this.state = {
       address: "",
-      sliderValue: 5
+      sliderValue: 5,
+      ready: false
     };
   }
   handleChange = event => {
@@ -18,8 +19,17 @@ class SearchWindow extends React.Component {
   };
 
   handleSliderChange = event => {
-	this.setState({ sliderValue: event });
-	// console.log("event : ", event)
+    this.setState({ sliderValue: event });
+    // console.log("event : ", event)
+  };
+
+  handleSetReady = event => {
+    this.setState({ ready: event });
+  };
+
+  handleClickFunction = () => {
+    this.alertFunction(this.state.address);
+    this.setState({ ready: true });
   };
 
   alertFunction(e) {
@@ -39,17 +49,18 @@ class SearchWindow extends React.Component {
               onChange={this.handleChange}
             ></input>
           </div>
-          <Slider handleSliderChange = {this.handleSliderChange}></Slider>
-          <button
-            onClick={
-              this.state.address
-                ? () => this.alertFunction(this.state.address)
-                : null
-            }
-          >
+          <p></p>
+          <div>Radius: {this.state.sliderValue}</div>
+          <Slider handleSliderChange={this.handleSliderChange}></Slider>
+          <button onClick={this.state.address ? this.handleClickFunction : null}>
             Search
           </button>
-          <SearchResults></SearchResults>
+          <SearchResults
+            location={this.state.address}
+            ready={this.state.ready}
+            handleSetReady={this.handleSetReady}
+            sliderValue = {this.state.sliderValue}
+          />
         </div>
       </div>
     );

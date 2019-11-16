@@ -3,7 +3,6 @@ import RestaurantCard from "../components/RestaurantCard";
 
 import "../styleSheets/SearchResults.css";
 
-
 var json = [];
 
 class SearchResults extends React.Component {
@@ -13,38 +12,47 @@ class SearchResults extends React.Component {
     this.state = { apiResponse: "" };
   }
 
-  callAPI() {
+  callAPI(location, radius) {
+    radius *= 1600;
+    const queryString = "https://thevirtualnomapiproduction.herokuapp.com/search/?location=" + location+ "&radius=" + radius;
+    const testString = "http://localhost:9000/search/?location=" + location+ "&radius=" + radius;
+    console.log('testString', testString)
     // fetch("https://thevirtualnomapiproduction.herokuapp.com/search/")
-    fetch("http://localhost:9000/search")
+    // fetch("http://localhost:9000/search")
+    fetch(queryString)
+      // .then(res => res.json())
       .then(res => res.json())
-      .then(res => this.setState({ apiResponse: res }))
+      .then(res => this.setState({ apiResponse: res }));
   }
-  componentDidMount() {
-    this.callAPI();
+  componentDidUpdate() {
+    // console.log("in mount", this.props.ready)
+    if (this.props.ready) {
+      this.callAPI(this.props.location, this.props.sliderValue);
+      this.props.handleSetReady(false);
+    }
   }
-
 
   render() {
     var resObj = this.state.apiResponse.slice();
-    console.log("asdf2",resObj)
+    console.log("asdf2", resObj);
     for (var key in resObj) {
-        json.push(resObj[key]);
+      json.push(resObj[key]);
     }
     // console.log(json);
 
     return (
       <div className="resultContainer">
-          <ul>
-            {json.map((item, i) => {
-              return (
-                <li key={i}>
-                  {/* <RestaurantCard>{item.name}</RestaurantCard> */}
-                  <RestaurantCard>{item}</RestaurantCard>
-                </li>
-              );
-            })}
-            {/* <RestaurantCard>{json}</RestaurantCard> */}
-          </ul>
+        <ul>
+          {json.map((item, i) => {
+            return (
+              <li key={i}>
+                {/* <RestaurantCard>{item.name}</RestaurantCard> */}
+                <RestaurantCard>{item}</RestaurantCard>
+              </li>
+            );
+          })}
+          {/* <RestaurantCard>{json}</RestaurantCard> */}
+        </ul>
       </div>
     );
   }
