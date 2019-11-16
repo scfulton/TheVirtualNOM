@@ -4,18 +4,18 @@ var json = [];
 const MetersPerMiles = 1609.34
 
 export default function RestaurantCard(props) {
-  console.log("in Props card " + props.categories);
+  // console.log("in Props card " + props.categories);
   var resObj = props.categories;
-  console.log("asdf1",resObj)
+  // console.log("asdf1",resObj)
   for (var key in resObj) {
       json.push(resObj.title[key]);
-      console.log('json.title',resObj.title[key])
+      // console.log('json.title',resObj.title[key])
   }
 
   return (
     <div className="Rest_Card">
 
-      <img className="List_Image" src={props.children.image_url} alt="yay!"></img>
+      <img className="List_Image" src={props.children.image_url} alt="Boo!"></img>
       <a href={props.children.url} target="_blank" rel="noopener noreferrer">
         <div>{props.children.name}</div>
       </a>
